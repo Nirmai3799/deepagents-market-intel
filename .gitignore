@@ -1,0 +1,13 @@
+# Secrets — never commit
+.env
+
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Agent-generated artefacts.
+# NOTE: sandbox/skills/ is deliberately NOT ignored — skills are source code we
+# author, not output the agent produced.
+sandbox/output/
+sandbox/research/

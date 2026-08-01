@@ -1,0 +1,62 @@
+Market : Indian quick-commerce
+Firms  : Zepto, Blinkit
+Model  : anthropic:claude-haiku-4-5 (lead and subagents)
+Rounds : max 1 revision
+========================================================================
+
+PLAN
+  [ ] Research Zepto in depth
+  [ ] Research Blinkit in depth
+  [ ] Write competitive intelligence report to /output/market_report.md
+  [ ] Fact-check the report
+
+DELEGATE  -> competitor-researcher  Research Zepto, an Indian quick-commerce company...
+DELEGATE  -> competitor-researcher  Research Blinkit, an Indian quick-commerce company...
+
+PLAN
+  [x] Research Zepto in depth
+  [x] Research Blinkit in depth
+  [>] Write competitive intelligence report to /output/market_report.md
+  [ ] Fact-check the report
+
+DELEGATE  -> report-writer          Write a competitive intelligence report on the Indian quick-...
+
+PLAN
+  [x] Research Zepto in depth
+  [x] Research Blinkit in depth
+  [x] Write competitive intelligence report to /output/market_report.md
+  [>] Fact-check the report
+
+DELEGATE  -> fact-checker           Fact-check the competitive intelligence report at /output/ma...
+
+PLAN
+  [x] Research Zepto in depth
+  [x] Research Blinkit in depth
+  [x] Write competitive intelligence report to /output/market_report.md
+  [x] Fact-check the report
+  [>] Fix fact-checker issues in report
+
+DELEGATE  -> report-writer          Revise the report at /output/market_report.md to fix the fol...
+
+PLAN
+  [x] Research Zepto in depth
+  [x] Research Blinkit in depth
+  [x] Write competitive intelligence report to /output/market_report.md
+  [x] Fact-check the report
+  [x] Fix fact-checker issues in report
+  [>] Re-check report after revisions
+
+DELEGATE  -> fact-checker           Re-verify the revised report at /output/market_report.md...
+
+========================================================================
+NOTE
+========================================================================
+This transcript was captured up to the final re-verification step. All
+artefacts in this folder are the real files the agents wrote to disk
+during this run -- see market_report.md, factcheck_1.md and
+factcheck_revised.md.
+
+The delegation trail above is the point of interest: the lead agent never
+called internet_search itself. Every web search happened inside a
+subagent's own context window, so the lead's context held only the plan
+and short summaries.
